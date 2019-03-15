@@ -1,0 +1,17 @@
+<html lang="de">
+
+    <header>
+        <title>Imap Client</title>
+    </header>
+
+    <body>
+
+        <h1>Hello World</h1>
+
+        <ul></ul>
+
+        <script src="client.js" async></script>
+
+    </body>
+
+</html>
