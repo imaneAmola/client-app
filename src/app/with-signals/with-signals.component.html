@@ -1,0 +1,23 @@
+<div class="mod_fieldset var_shop traveler-container">
+  <div class="sbb-radio-group sbb-radio-group-base sbb-radio-panel-group">
+    <pre>Hello from {{ fullName() }}</pre>
+    <div *ngFor="let entry of  historyChanges()">
+      <p> History changes : {{entry}}</p>
+    </div>
+    <pre>count changes : {{signalCounter}}</pre>
+    <label>Change first name</label>
+      <div class="sbb-form-field sbb-form-field-type-sbb-select">
+        <select class="sbb-select sbb-input-element sbb-select-empty"
+                [ngModel]="firstName()"
+                (change)="changeFirstName($any($event.target).value)">
+          <option *ngFor="let q of ['Peter', 'Imen', 'Sam']">{{ q }}</option>
+        </select>
+      </div>
+  </div>
+  <br>
+  <div class="sbb-radio-group sbb-radio-group-base sbb-radio-panel-group">
+    <button (click)="changeName()" type="button" sbb-button>change name</button>
+    <button (click)="updateName()" type="button" sbb-button>update first name</button>
+    <button (click)="resetCounter()" type="button" sbb-button>Rest Counter</button>
+  </div>
+</div>
