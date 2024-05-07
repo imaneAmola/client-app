@@ -1,0 +1,35 @@
+.example-card {
+  width: 250px;
+  display: flex;
+  height: 100%;
+  background-color: white;
+
+}
+
+.subtitle {
+  color: purple;
+}
+
+.img-warrpaer {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: auto;
+  position: relative;
+
+}
+
+.imgmedia {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.actionCard {
+
+  margin-top: auto;
+
+}
+

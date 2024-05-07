@@ -1,19 +1,12 @@
-<header #header></header>
-<main id="main" #main>
-  <div class="layout_center">
-    <div class="layout_columns_main var_no_gap">
-      <sbb-tab-group>
-        <sbb-tab label="Example With Rxjs">
-          <app-normal></app-normal>
-        </sbb-tab>
+<div class="container">
+  <div><a mat-raised-button color="accent" routerLink="/" routerLinkActive="link-active">NGRX <span>SIGNAL</span> STORE</a></div>
+  <div>
+    <a mat-raised-button color="accent" routerLink="/cart">Cart
+      <span>{{ cartStore.products().length }}</span></a>
 
-        <sbb-tab label="Example With Signals">
-          <div>
-            <app-with-signals></app-with-signals>
-          </div>
-        </sbb-tab>
-      </sbb-tab-group>
-    </div>
+    <!-- Add more navigation items here -->
   </div>
-</main>
-<footer id="footer" #footer></footer>
+  <mat-divider [inset]="true"></mat-divider>
+</div>
+
+<router-outlet></router-outlet>
