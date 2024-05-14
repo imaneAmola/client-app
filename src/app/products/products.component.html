@@ -1,0 +1,16 @@
+<app-product-filter></app-product-filter>
+<div class="flexklas">
+  @if (productStore.isLoading()) {
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  }
+  @if (productStore.iProducts().length > 0) {
+    @for (item of productStore.iProducts(); track $index) {
+
+      <app-product-card [product]="item" (handleAdd)="addItemToCart($event)"/>
+
+    }
+  } @else {
+    <span> No products found</span>
+  }
+
+</div>

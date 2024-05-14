@@ -1,0 +1,32 @@
+.sbb-radio-group {
+  display: flex;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::ng-deep {
+  .mdc-card__media {
+    max-height: 20rem;
+  }
+
+  .mat-mdc-card {
+    background-color: aqua;
+  }
+
+  .mdc-card__actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 52px;
+    padding: 8px;
+    margin-top: auto;
+  }
+}

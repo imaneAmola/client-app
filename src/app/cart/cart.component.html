@@ -1,0 +1,93 @@
+@if (cartStore.cartProductCount() === 0) {
+  <div>
+    <h2>Your cart is Empty!</h2>
+  </div>
+
+} @else {
+  <div class="flexklas">
+    <h2>Your cart</h2>
+    <ul>
+      @for (item of cartStore.products(); track $index) {
+        <!--        <mat-card class="example-card">-->
+          <!--          <mat-card-header>-->
+          <!--            <div mat-card-avatar class="example-header-image"></div>-->
+          <!--            <mat-card-title>Shiba Inu</mat-card-title>-->
+          <!--            <mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
+          <!--          </mat-card-header>-->
+          <!--          <img mat-card-image [src]="item.image" alt="Photo of a Shiba Inu">-->
+          <!--          <mat-card-content>-->
+          <!--            <p>-->
+          <!--              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
+          <!--              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
+          <!--              bred for hunting.-->
+          <!--            </p>-->
+          <!--          </mat-card-content>-->
+          <!--          <mat-card-actions>-->
+          <!--            <button mat-button>{{ item.price | currency }}</button>-->
+          <!--            <button mat-button>Remove</button>-->
+          <!--          </mat-card-actions>-->
+          <!--        </mat-card>-->
+        <li>
+          <div class="flexklas">
+            <img [src]="item.image" alt="img"/>
+            <div class="">
+              <div class="flex">
+                <div class="">
+                  <h3 class="">
+                    {{ item.title }}
+                  </h3>
+                  <p class="">Orange</p>
+                </div>
+                <div class="">
+                  <p class="">{{ item.price | currency }}</p>
+                </div>
+              </div>
+              <div class="flex divide-x text-sm">
+                <button type="button" mat-flat-button color="primary" (click)="cartStore.removeItem(item.id)"
+                        class="flex text-red-400 items-center space-x-2 px-2 py-1 pl-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       class="lucide lucide-trash">
+                    <path d="M3 6h18"></path>
+                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                  </svg>
+                  <span>Remove</span>
+                </button>
+                <button type="button" mat-flat-button color="accent">
+                  {{ item.rating.count | number }} Add to favorites
+                </button>
+                <!-- Quantity Controls -->
+                <div class="quantity-controls flex items-center pl-4">
+                  <button mat-flat-button color="accent" (click)="decrement(item.id, item.quantity)"
+                          class="decrement-button bg-red-300 text-gray-600 hover:bg-red-400 px-2 py-1 rounded-l">
+                    -
+                  </button>
+                  <input type="text" readonly class="quantity-input h-7 w-12 text-center border-t border-b"
+                         [value]="item.quantity">
+                  <button mat-flat-button color="accent" (click)="cartStore.increment(item.id)"
+                          class="increment-button bg-green-300 text-gray-600 hover:bg-green-400 px-2 py-1 rounded-r">
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      }
+    </ul>
+    <div class="">
+      <p>
+        Total amount:<span class="font-semibold"> {{ cartStore.totalPrice() | currency }}</span>
+      </p>
+    </div>
+    <div class="">
+      <button type="button" mat-flat-button color="primary" routerLink="/products"
+      > Back to shop
+      </button>
+      <button type="button" mat-flat-button color="primary"
+      > Checkout
+      </button>
+    </div>
+  </div>
+}

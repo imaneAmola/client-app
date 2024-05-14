@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="home"><a mat-raised-button color="accent" routerLink="/" routerLinkActive="link-active">NGRX <span>SIGNAL</span> STORE</a></div>
+  <div>
+    <a mat-raised-button color="accent" routerLink="/cart">Cart
+      <span>{{ cartStore.cartProductCount() }}</span></a>
+
+    <!-- Add more navigation items here -->
+  </div>
+  <mat-divider [inset]="true"></mat-divider>
+</div>
+<router-outlet></router-outlet>
