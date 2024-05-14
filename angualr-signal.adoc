@@ -38,7 +38,7 @@ Example:
 
 ----
 
-= How to Define a Computed Signal
+== How to Define a Computed Signal
 
 Oftentimes we have variables in our code that depend on other variables.
 For example, the total price for an item is the price for that item times the desired quantity of that item.
@@ -114,5 +114,5 @@ So what happens when the model changes?
 The template is notified of this change and the DOM updates.
 
 That's it.
-image:img_1.gif[img_1.gif]
+image:mindblown.gif[img_1.gif]
 

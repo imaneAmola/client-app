@@ -1,7 +1,7 @@
 import {patchState, signalStore, withComputed, withHooks, withMethods, withState} from '@ngrx/signals';
 import {IProduct} from '../shared/models/product.interface';
 import {ProductApiService} from '../shared/services/product-api.service';
-import {computed, effect, inject} from '@angular/core';
+import {computed, inject} from '@angular/core';
 import {debounceTime, pipe, switchMap, tap} from 'rxjs';
 import {rxMethod} from '@ngrx/signals/rxjs-interop';
 import {withDevtools} from '@angular-architects/ngrx-toolkit';
@@ -30,10 +30,7 @@ export const ProductStore = signalStore(
   withState(initialProductState),
   withComputed((store) => ({
     count: computed(() => store.iProducts().length),
-    updateEnt: computed(() =>
-      effect(() => {
-        store.iProducts();
-      }))
+    updateEnt: computed(() => store.iProducts())
 
   })),
 
