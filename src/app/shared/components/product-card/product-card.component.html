@@ -3,10 +3,11 @@
     <mat-card-title>{{ product.title }}</mat-card-title>
     <mat-card-subtitle class="subtitle"> {{ product.description.substring(0, 100) }}...</mat-card-subtitle>
   </mat-card-header>
-<!--  <div class="img-warrpaer"><img mat-card-image [src]="product.image" alt="df" class="imgmedia"></div>-->
+  <!--  <div class="img-warrpaer"><img mat-card-image [src]="product.image" alt="df" class="imgmedia"></div>-->
+
 
   <mat-card-actions class="actionCard">
-<!--    <button mat-flat-button color="accent">LIKE</button>-->
+    <button mat-flat-button color="accent">LIKE</button>
     <button mat-flat-button color="primary" (click)="addToCart(product)">add to cart</button>
   </mat-card-actions>
 </mat-card>

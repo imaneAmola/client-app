@@ -11,7 +11,8 @@ import {MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatIcon} from '@angular/material/icon';
 import {MatInput} from '@angular/material/input';
 import {ReactiveFormsModule} from '@angular/forms';
-import {ProductFilterComponent} from '../shared/components/product-filter/product-filter.component';
+import {ProductFilterComponent} from './product-filter/product-filter.component';
+import {ProductStore} from '../store/product.store';
 
 
 @Component({
@@ -24,17 +25,13 @@ import {ProductFilterComponent} from '../shared/components/product-filter/produc
 })
 export class ProductsComponent implements OnInit {
   cartStore = inject(CartStore);
+  productStore = inject(ProductStore);
 
-  constructor() {
-    effect(() => {
-      // 👇 The effect will be re-executed whenever the state changes.
-      const state = getState(this.cartStore);
-      console.log('productStore changed', state);
-    });
-  }
+
 
   ngOnInit(): void {
     // this.productStore.loadIProducts();
+    // this.productStore.iProductLoading()
   }
 
   addItemToCart(product: IProduct) {

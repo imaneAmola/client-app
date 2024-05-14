@@ -10,12 +10,13 @@ import {selectCartProducts} from './states/cart/cart.selector';
 import {CartStore} from './store/cart.store';
 import {MatAnchor} from '@angular/material/button';
 import {MatDivider} from '@angular/material/divider';
-import {ProductFilterComponent} from './shared/components/product-filter/product-filter.component';
+import {ProductFilterComponent} from './products/product-filter/product-filter.component';
+import {MatProgressSpinner} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, MatAnchor, RouterLinkActive, MatDivider, ProductFilterComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, MatAnchor, RouterLinkActive, MatDivider, ProductFilterComponent, MatProgressSpinner],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

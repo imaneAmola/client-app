@@ -1,0 +1,34 @@
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Product count :{{ productStore.iProducts().length }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <section class="example-section">
+      <mat-form-field>
+        <h4>Search with product id:</h4>
+        <input matInput type="number" [(ngModel)]="productId" (ngModelChange)="filterProdukt()">
+      </mat-form-field>
+      <section>
+        <h4>Select categories:</h4>
+        <mat-radio-group [value]="productStore.selectedCategorie()">
+          @for (item of productStore.categories(); track $index) {
+            <mat-radio-button class="example-margin" [value]="item" (click)="filterCategories(item)">{{ item }}</mat-radio-button>
+          }
+          <mat-radio-button class="example-margin" value='all' (click)="getAll()">All</mat-radio-button>
+        </mat-radio-group>
+      </section>
+      <section>
+        <h4>Sort products</h4>
+        <mat-form-field>
+          <mat-select [(ngModel)]="sortOrder" (selectionChange)="sort($event)">
+            <mat-option value="asc">ASC</mat-option>
+            <mat-option value="desc">DESC</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </section>
+      <!--      <button mat-flat-button color="accent" (click)="productStore.canRedo()">LIKE</button>-->
+    </section>
+  </mat-expansion-panel>
+</mat-accordion>

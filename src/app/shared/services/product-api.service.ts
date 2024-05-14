@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {inject, Injectable} from '@angular/core';
 import {IProduct} from '../models/product.interface';
-import {filter, map, tap} from 'rxjs';
+import {filter, map} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +12,11 @@ export class ProductApiService {
   constructor() {
   }
 
-  getProducts() {
-    let url = 'https://fakestoreapi.com/products';
+  getProducts(sort: 'asc' | 'desc' | undefined = 'desc') {
+    let url = 'https://fakestoreapi.com/products?sort=' + sort;
     return this.http.get<IProduct[]>(url)
       .pipe(
         filter(product => product && product.length > 0),
-        tap(res => console.log('foo', res)),
         map(((products) => {
           return products.map((product) => {
             return {...product, quantity: 1};

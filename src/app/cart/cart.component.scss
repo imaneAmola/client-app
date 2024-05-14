@@ -1,4 +1,8 @@
-:host {
+.flexklas {
   display: flex;
-  margin: 2rem;
+  flex-wrap: wrap;
+  padding: 20px 20px 100px;
+  justify-content: center;
+  gap: 2rem;
 }
+

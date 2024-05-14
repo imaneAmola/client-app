@@ -1,10 +1,10 @@
 <app-product-filter></app-product-filter>
 <div class="flexklas">
-  @if (cartStore.isLoading()) {
+  @if (productStore.isLoading()) {
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   }
-  @if (cartStore.iProducts().length > 0) {
-    @for (item of cartStore.iProducts(); track $index) {
+  @if (productStore.iProducts().length > 0) {
+    @for (item of productStore.iProducts(); track $index) {
 
       <app-product-card [product]="item" (handleAdd)="addItemToCart($event)"/>
 
